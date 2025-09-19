@@ -33,7 +33,7 @@ public class FilmeService {
     }
 
     public Page<FilmeDTO> pesquisarFilmePorNome(String nome, Pageable pageable){
-        return filmeRepository.findByNomeIgnoringCase(nome, pageable)
+        return filmeRepository.findByNomeContainingIgnoringCase(nome, pageable)
             .map(FilmeDTO::fromModel);
     }
 
@@ -42,7 +42,8 @@ public class FilmeService {
             return false;
         }
 
-        return filmeRepository.deleteByCodigo(codigo);
+        filmeRepository.deleteById(codigo);
+        return true;
     }
 
     public FilmeDTO atualizarFilmePorCodigo(int codigo, FilmeAtualizadoDTO dto){

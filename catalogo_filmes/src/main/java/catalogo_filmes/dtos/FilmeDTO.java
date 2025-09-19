@@ -4,6 +4,7 @@ import catalogo_filmes.models.entities.Filme;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class FilmeDTO {
     @Max(value = 5, message = "A avaliação não pode exceder 5")
     private Double avaliacao;
 
+    @Size(min = 0, max = 50, message = "O comentário não pode exceder 50 caracteres")
     private String comentario;
 
 

@@ -19,9 +19,9 @@ import lombok.Setter;
 public class Filme {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
-    
+
     private String nome;
     private Integer ano;
     private String genero;
