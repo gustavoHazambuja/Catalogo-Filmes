@@ -10,5 +10,9 @@ public interface FilmeRepository extends JpaRepository<Filme, Integer> {
     
     boolean existsByCodigo(int codigo);
 
+    boolean deleteByCodigo(int codigo);
+
+    Filme findByCodigo(int codigo);
+
     Page<Filme> findByNomeIgnoringCase(String nome, Pageable pageable);
 }
